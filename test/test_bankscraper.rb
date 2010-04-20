@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestBankscraper < Test::Unit::TestCase
-  should "probably rename this file and start testing for real" do
-    flunk "hey buddy, you should probably rename this file and start testing for real"
+  should "Write tests" do
+    flunk "there are no real tests, just this fake one"
   end
 end
