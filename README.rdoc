@@ -1,6 +1,39 @@
 = bankscraper
 
-Description goes here.
+Automate logging in to your bank and credit card accounts to retrieve
+your current balance and transaction data. 
+
+Banks often provide API access to retrieve transaction data, but the
+chances of the API working for open source users seems to be slim at
+best.  It has certainly never worked for me, but maybe I'm just slow. 
+
+The next best option is to automate the process of logging in to the 
+account website to retrieve data.  That's right, it's 2010 and we're
+talking about screen scraping.  
+
+== Project Direction
+
+Bankscraper uses the watir library to drive a browser.  The project
+is user driven:  any banks or credit cards that are supported by 
+bankscraper are used by one or more of the developers.  
+
+Two actions are being implemented: login and current balance
+retrieval.  Once the basic mechanics of those two tasks are handled,
+we will figure out how to download CSV transaction data from the 
+sites.  What else would you like to see bankscraper do?  
+
+== Testing
+
+I'm struggling with the best way to test the library.  How does one
+effectively write an automated test suite for a library that logs
+in to sensitive and personal websites to retrieve data?  I'm not 
+volunteering to check in a file with my discovercard.com credentials
+just for the sake of an automated test suite.  
+
+Do we mock all of the credit card interactions for most of the tests,
+but then have a test that hits the login page of each provider to look
+for changes to the structure?  Changes to the login page might be the
+canary that can notify us of site wide changes?  
 
 == Note on Patches/Pull Requests
  
