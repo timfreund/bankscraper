@@ -4,5 +4,6 @@ module BankScraper
 
 end
 
-require 'bankscraper/discover'
+require 'bankscraper/capitolfederal'
 require 'bankscraper/chasecredit'
+require 'bankscraper/discover'
