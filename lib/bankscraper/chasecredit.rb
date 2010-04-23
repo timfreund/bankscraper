@@ -11,15 +11,15 @@ module BankScraper
     end
 
     def login
-      @browser.goto("https://www.chase.com/credit-cards.htm?card=member")
-      @browser.text_field(:id, "uid").set(@credentials["username"])
-      @browser.text_field(:name, "usr_password_tmp").set(@credentials["password"])
-      @browser.button(:class, "loginButton").click
+      @browser.goto("https://chaseonline.chase.com/Logon.aspx")
+      @browser.text_field(:name, "Password").set(@credentials["password"])
+      @browser.text_field(:id, "UserID").set(@credentials["username"])
+      @browser.button(:id, "logon").click
     end
 
     def balance
       @browser.goto("https://chaseonline.chase.com/MyAccounts.aspx")
-      return "I have no idea"
+      return @browser.tables[15].rows[0].cells[2].text
     end
   end
 end
