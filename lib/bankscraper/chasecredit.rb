@@ -19,7 +19,13 @@ module BankScraper
 
     def balance
       @browser.goto("https://chaseonline.chase.com/MyAccounts.aspx")
-      return @browser.tables[15].rows[0].cells[2].text
+      for table in @browser.tables
+        if table.rows.length > 0 and table.rows[0].cells.length > 2
+          if table.rows[0].cells[1].text.starts_with? "Outstanding balance"
+            return table.rows[0].cells[2].text.gsub(/[$,]/, '')
+          end
+        end
+      end
     end
   end
 end
