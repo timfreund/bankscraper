@@ -19,7 +19,7 @@ module BankScraper
 
     def balance
       @browser.goto("https://www.discovercard.com/cardmembersvcs/achome/homepage")
-      @browser.span(:id, "current-balance").text
+      @browser.span(:id, "current-balance").text.gsub(/[$,]/, '')
     end
   end
 end

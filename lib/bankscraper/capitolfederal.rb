@@ -23,7 +23,7 @@ module BankScraper
       @browser.button(:id, "btnSubmitHistoryRequest").click
       table = @browser.table(:id, "ctlAccountActivityChecking")
       cell = table.rows[1].cells[6]
-      return cell.text
+      return cell.text.gsub(/[$,]/, '')
     end
   end
 end
